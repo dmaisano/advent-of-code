@@ -22,28 +22,6 @@ function parseGame(s: string): Game {
   return { id, counts }
 }
 
-// function isGamePossible(
-//   game: Game,
-//   maxCounts: { red: number; green: number; blue: number }
-// ): boolean {
-//   return game.counts.every(
-//     (counts) =>
-//       counts.red <= maxCounts.red &&
-//       counts.green <= maxCounts.green &&
-//       counts.blue <= maxCounts.blue
-//   )
-// }
-
-// function sumPossibleGameIds(
-//   games: string[],
-//   maxCounts: { red: number; green: number; blue: number }
-// ): number {
-//   return games
-//     .map(parseGame)
-//     .filter((game) => isGamePossible(game, maxCounts))
-//     .reduce((sum, game) => sum + game.id, 0)
-// }
-
 function minCubesForGame(game: Game): {
   red: number
   green: number
