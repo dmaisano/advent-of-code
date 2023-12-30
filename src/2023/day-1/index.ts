@@ -1,5 +1,6 @@
 import { readFile } from "fs/promises"
 import { join as joinPath } from "path"
+import { importFileStrArray } from "../utils"
 
 const digitMap: {
   [key: string]: string
@@ -47,12 +48,7 @@ function getCalibrationValue(line: string): number {
 }
 
 async function main() {
-  const lines: string[] = (
-    await readFile(joinPath(__dirname, "./input.txt"), "utf8")
-  )
-    .split("\n")
-    .map((l) => l.trim())
-    .filter((l) => l.length > 0)
+  const lines = await importFileStrArray("./input.txt")
 
   let sum = 0
   for (const line of lines) {
