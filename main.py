@@ -1,7 +1,8 @@
 import sys
 import subprocess
 
-def execute_script(file_path):
+
+def execute_script(file_path: str) -> None:
     """Executes the Python script at the given file path."""
     try:
         subprocess.run([sys.executable, file_path])
@@ -9,6 +10,7 @@ def execute_script(file_path):
         print(f"Error executing script: {error}")
     except FileNotFoundError:
         print(f"Script file not found: {file_path}")
+
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
