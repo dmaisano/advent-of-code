@@ -27,6 +27,5 @@ if __name__ == "__main__":
         "31 18 13 56 72 | 74 77 10 23 35 67 36 11"
     ]
     cards = utils.read_file_lines("input.txt", stub_cards)
-    # print(cards[-1])
     points = calculate_points_part_1(cards)
     print(f"Total points: {points}")
