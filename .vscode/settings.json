@@ -4,14 +4,7 @@
       "mode": "auto"
     }
   ],
-  // "editor.tabSize": 4
   "[python]": {
     "editor.tabSize": 4
-    // "diffEditor.ignoreTrimWhitespace": false,
-    // "gitlens.codeLens.symbolScopes": [
-    //   "!Module"
-    // ],
-    // "editor.formatOnType": true,
-    // "editor.wordBasedSuggestions": false
   }
 }
