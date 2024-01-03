@@ -15,4 +15,4 @@ if __name__ == "__main__":
         file_path = sys.argv[1]
         execute_script(file_path)
     else:
-        print("Usage: python execute_script.py <file_path>")
+        print("Usage: python main.py <file_path>")
