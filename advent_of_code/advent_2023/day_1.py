@@ -48,23 +48,8 @@ def parse_line(line: str) -> int:
 
 
 if __name__ == "__main__":
-    # debug = False
-    # stub_part_2: list[str] = debug and [
-    #     "two1nine",
-    #     "eightwothree",
-    #     "abcone2threexyz",
-    #     "xtwone3four",
-    #     "4nineeightseven2",
-    #     "zoneight234",
-    #     "7pqrstsixteen",
-    # ]
-    # stub_part_1: list[str] = debug and [
-    #     "1abc2",
-    #     "pqr3stu8vwx",
-    #     "a1b2c3d4e5f",
-    #     "treb7uchet",
-    # ]
-
     calibration_document = read_file_lines("day_1.txt")
-    points = sum_calibration_values_part_2(calibration_document)
-    print(f"Total points: {points}")
+    part1_points = sum_calibration_values_part_1(calibration_document)
+    part2_points = sum_calibration_values_part_2(calibration_document)
+    print(f"Part 1 total points: {part1_points}")
+    print(f"Part 2 total points: {part2_points}")
