@@ -1,5 +1,5 @@
 import unittest
-from advent_of_code.advent_2023.day_1 import sum_calibration_values_part_1, sum_calibration_values_part_2, parse_line
+from advent_of_code.advent_2023.day_1.day_1 import sum_calibration_values_part_1, sum_calibration_values_part_2, parse_line
 
 class TestDay1(unittest.TestCase):
     def test_sum_calibration_values_part_1(self):

@@ -1,4 +1,4 @@
-from ..utils import read_file_lines
+from ...utils import read_file_lines
 
 digit_mapping = {
     "one": "1",
