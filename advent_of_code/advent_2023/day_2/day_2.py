@@ -14,8 +14,6 @@ class Game(BaseModel):
     counts: list[Counts] = []
 
 
-cube_counts = (12, 13, 14)
-
 def parse_game(game_str: str) -> Game:
     id_part, *count_parts = game_str.split(": ")
     count_parts = count_parts[0].split("; ")
@@ -49,7 +47,7 @@ def is_game_possible(game: Game, max_counts: Counts) -> bool:
 
 
 def part_1_soln(games: list[str]) -> int:
-    red_count, green_count, blue_count = cube_counts
+    red_count, green_count, blue_count = (12, 13, 14)
     possible_game_ids: list[int] = []
 
     for game_id, game in enumerate(games, start=1):
@@ -61,7 +59,33 @@ def part_1_soln(games: list[str]) -> int:
 
     return sum(possible_game_ids)
 
+
+def find_minimum_cubes(game: Game) -> Counts:
+    min_cubes = Counts()
+    for counts in game.counts:
+        min_cubes.red = max(counts.red, min_cubes.red)
+        min_cubes.green = max(counts.green, min_cubes.green)
+        min_cubes.blue = max(counts.blue, min_cubes.blue)
+    return min_cubes
+
+
+def calc_cube_power(count: Counts) -> int:
+    return count.red * count.green * count.blue
+
+
+def part2_soln(games: list[str]) -> int:
+    sum_cube_powers = 0
+    for game_str in games:
+        parsed_game = parse_game(game_str)
+        min_cubes = find_minimum_cubes(parsed_game)
+        sum_cube_powers += calc_cube_power(min_cubes)
+    return sum_cube_powers
+
+
 if __name__ == "__main__":
     games = read_file_lines("day_2.txt")
     sum_game_ids = part_1_soln(games)
     print(f"Part 1 total points: {sum_game_ids}")
+
+    sum_cube_powers = part2_soln(games)
+    print(f"Part 2 sum of cube powers: {sum_cube_powers}")
