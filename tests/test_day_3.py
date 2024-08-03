@@ -1,7 +1,10 @@
 import unittest
 
 from advent_of_code.advent_2023.day_3.day_3 import (
-    get_adjacent_indices,
+    calc_gear_ratios,
+    find_adjacent_indices,
+    find_gear_indices,
+    fill_gears,
     find_part_numbers,
 )
 
@@ -69,15 +72,42 @@ class TestDay1(unittest.TestCase):
             (6, 6),
             (7, 5),
         }
+        self.gears = {
+            (1, 3): [],
+            (3, 6): [],
+            (4, 3): [],
+            (5, 5): [],
+            (8, 3): [],
+            (8, 5): [],
+        }
+        self.filled_gears = {
+            (1, 3): [467, 35],
+            (3, 6): [633],
+            (4, 3): [617],
+            (5, 5): [592],
+            (8, 3): [664],
+            (8, 5): [755, 598],
+        }
 
-    def test_get_adjacent_indices(self):
-        self.assertEqual(self.symbol_adjacent, get_adjacent_indices(self.lines))
+    def test_find_adjacent_indices(self):
+        self.assertEqual(self.symbol_adjacent, find_adjacent_indices(self.lines))
 
     def test_find_part_numbers(self):
         expected_part_nums = {467, 35, 633, 617, 592, 755, 664, 598}
         actual_part_nums = find_part_numbers(self.lines, self.symbol_adjacent)
         self.assertEqual(expected_part_nums, actual_part_nums)
         self.assertEqual(sum(actual_part_nums), 4361)
+
+    def test_find_gear_indices(self):
+        self.assertEqual(self.gears, find_gear_indices(self.lines))
+
+    def test_fill_gears(self):
+        actual_gear_ratios = fill_gears(self.lines, self.gears)
+        self.assertEqual(self.filled_gears, actual_gear_ratios)
+
+    def test_calc_gear_ratios(self):
+        result = calc_gear_ratios(self.filled_gears)
+        self.assertEqual(result, 467835)
 
 
 if __name__ == "__main__":
