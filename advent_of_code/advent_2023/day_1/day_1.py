@@ -12,7 +12,8 @@ digit_mapping = {
     "nine": "9",
 }
 
-def sum_calibration_values_part_1(calibration_document: list[str]) -> int:
+
+def sum_calibration_values_part1(calibration_document: list[str]) -> int:
     total_sum = 0
     for line in calibration_document:
         first_digit = next((char for char in line if char.isdigit()), None)
@@ -22,7 +23,7 @@ def sum_calibration_values_part_1(calibration_document: list[str]) -> int:
     return total_sum
 
 
-def sum_calibration_values_part_2(calibration_document: list[str]) -> int:
+def sum_calibration_values_part2(calibration_document: list[str]) -> int:
     total_sum = 0
     for line in calibration_document:
         total_sum += parse_line(line)
@@ -49,7 +50,7 @@ def parse_line(line: str) -> int:
 
 if __name__ == "__main__":
     calibration_document = read_file_lines("day_1.txt")
-    part1_points = sum_calibration_values_part_1(calibration_document)
-    part2_points = sum_calibration_values_part_2(calibration_document)
+    part1_points = sum_calibration_values_part1(calibration_document)
+    part2_points = sum_calibration_values_part2(calibration_document)
     print(f"Part 1 total points: {part1_points}")
     print(f"Part 2 total points: {part2_points}")

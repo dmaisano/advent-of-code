@@ -46,7 +46,7 @@ def is_game_possible(game: Game, max_counts: Counts) -> bool:
     )
 
 
-def part_1_soln(games: list[str]) -> int:
+def part1_soln(games: list[str]) -> int:
     red_count, green_count, blue_count = (12, 13, 14)
     possible_game_ids: list[int] = []
 
@@ -84,7 +84,7 @@ def part2_soln(games: list[str]) -> int:
 
 if __name__ == "__main__":
     games = read_file_lines("day_2.txt")
-    sum_game_ids = part_1_soln(games)
+    sum_game_ids = part1_soln(games)
     print(f"Part 1 total points: {sum_game_ids}")
 
     sum_cube_powers = part2_soln(games)

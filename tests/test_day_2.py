@@ -10,7 +10,7 @@ from advent_of_code.advent_2023.day_2.day_2 import (
     is_game_possible,
     parse_game,
     part2_soln,
-    part_1_soln,
+    part1_soln,
 )
 
 part2_mock = [
@@ -58,8 +58,8 @@ class TestGameFunctions(unittest.TestCase):
             "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green",
         ],
     )
-    def test_part_1_soln(self, mock_games: Type[MagicMock]):
-        result = part_1_soln(mock_games.return_value)
+    def test_part1_soln(self, mock_games: Type[MagicMock]):
+        result = part1_soln(mock_games.return_value)
         self.assertEqual(result, 8)
 
     def test_find_minimum_cubes(self):
