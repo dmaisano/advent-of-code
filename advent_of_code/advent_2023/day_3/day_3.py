@@ -2,8 +2,6 @@ import math
 import re
 from typing import Dict, Set, Tuple, TypeAlias
 
-from pydantic import BaseModel
-
 from ...utils import read_file_lines
 
 re_symbol = r"[^.\d]"

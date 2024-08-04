@@ -3,7 +3,7 @@ import unittest
 from advent_of_code.advent_2023.day_3.day_3 import Part1Soln, Part2Soln
 
 
-class TestDay1(unittest.TestCase):
+class TestDay3(unittest.TestCase):
     def setUp(self) -> None:
         self.lines = [
             "467..114..",
