@@ -13,3 +13,11 @@ func TestPart1(t *testing.T) {
 	}
 	t.Logf("Total distance: %d", totalDistance)
 }
+
+func TestPart2(t *testing.T) {
+	totalDistance, err := advent2024.Part2("./day_1_input.txt")
+	if err != nil {
+		t.Fatalf("Error calculating total distance: %v", err)
+	}
+	t.Logf("Total distance: %d", totalDistance)
+}
