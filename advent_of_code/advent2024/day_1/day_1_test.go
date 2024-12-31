@@ -3,7 +3,7 @@ package advent2024_test
 import (
 	"testing"
 
-	"github.com/dmaisano/advent-of-code/advent_of_code/advent2024"
+	advent2024 "github.com/dmaisano/advent-of-code/advent_of_code/advent2024/day_1"
 )
 
 func TestPart1(t *testing.T) {
