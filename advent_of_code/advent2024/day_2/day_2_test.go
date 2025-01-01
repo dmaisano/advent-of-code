@@ -13,3 +13,11 @@ func TestPart1(t *testing.T) {
 	}
 	t.Logf("Safe count: %d", safeCount)
 }
+
+func TestPart2(t *testing.T) {
+	safeCount, err := advent2024.Part2("./day_2_input.txt")
+	if err != nil {
+		t.Fatalf("Error calculating safe count: %v", err)
+	}
+	t.Logf("Safe count: %d", safeCount)
+}
