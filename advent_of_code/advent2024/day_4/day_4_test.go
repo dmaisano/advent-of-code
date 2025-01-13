@@ -13,3 +13,11 @@ func TestPart1(t *testing.T) {
 	}
 	t.Logf("Total xmas count: %d", xmasCount)
 }
+
+func TestPart2(t *testing.T) {
+	xmasCount, err := advent2024.Part2("./day_4_input.txt")
+	if err != nil {
+		t.Fatalf("Error calculating xmas count: %v", err)
+	}
+	t.Logf("Total xmas count: %d", xmasCount)
+}

@@ -58,3 +58,61 @@ func Part1(filePath string) (int, error) {
 
 	return count, nil
 }
+
+// isMAS checks if the given 3-letter string is "MAS" or "SAM".
+func isMAS(s string) bool {
+	return s == "MAS" || s == "SAM"
+}
+
+// Part2 solves the "X-MAS" puzzle.
+func Part2(filePath string) (int, error) {
+	lines, err := utils.ReadInputFile(filePath) // or use your own method to read lines
+	if err != nil {
+		return 0, err
+	}
+
+	// Convert lines into a 2D grid of runes (characters).
+	// This way we can index [row][col] easily.
+	grid := make([][]rune, len(lines))
+	for i := range lines {
+		grid[i] = []rune(lines[i])
+	}
+	rows := len(grid)
+	if rows == 0 {
+		return 0, fmt.Errorf("no input")
+	}
+	cols := len(grid[0]) // assuming rectangular input
+
+	count := 0
+
+	// We only scan where a 3x3 "X" can fully fit
+	// That means up to rows-2 and cols-2 (0-based indexing).
+	for r := 0; r < rows-2; r++ {
+		for c := 0; c < cols-2; c++ {
+			// Diagonal 1 (top-left to bottom-right)
+			d1 := []rune{
+				grid[r][c],
+				grid[r+1][c+1],
+				grid[r+2][c+2],
+			}
+
+			// Diagonal 2 (top-right to bottom-left)
+			d2 := []rune{
+				grid[r][c+2],
+				grid[r+1][c+1],
+				grid[r+2][c],
+			}
+
+			// Convert to string
+			diag1 := string(d1)
+			diag2 := string(d2)
+
+			// If both diagonals form "MAS" or "SAM", we've found an X-MAS
+			if isMAS(diag1) && isMAS(diag2) {
+				count++
+			}
+		}
+	}
+
+	return count, nil
+}
